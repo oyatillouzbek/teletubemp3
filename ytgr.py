@@ -3,7 +3,7 @@ import time
 import subprocess
 import telepot
 import os
-import urllib2
+import urllib3
 import re
 import json
 import requests
