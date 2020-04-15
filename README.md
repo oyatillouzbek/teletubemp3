@@ -1,4 +1,4 @@
-# teletubemp3 - A Telegram Bot
+# teletubemp3 - A Telegram Bot Uz
 
 **teletubemp3 is a Telegram Bot which converts YouTube video(s) to mp3 and send directly to your Telegram.**
 
