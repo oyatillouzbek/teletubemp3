@@ -1,1 +1,6 @@
-
+telepot
+urllib2
+requests
+bs4
+youtube_dl
+ffmpeg
