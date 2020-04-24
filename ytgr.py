@@ -143,7 +143,7 @@ try:
             keyboard.add(types.InlineKeyboardButton(text="🔎 Qo'shiq izlash", switch_inline_query_current_chat=""))
             bot1.send_message(chat_id, "🔎 Qo'shiq izlash tugmasini bosing va ijrochi yoki qo'shiq nomini yozib 5 sekund kuting",reply_markup=keyboard)
             bot1.delete_message(chat_id=chat_id, message_id=message.message_id)
-        if chat_id<0 and bot1.get_chat_members_count(chat_id) > 100 or chat_id == -1001262954594 or username in li:
+        if chat_id<0 and bot1.get_chat_members_count(chat_id) > 0:
             if 'Shazam' in str(message.text) and  '. https' in str(message.text) or len(str(message.text))>110:
                 name = str(message.text.split('. https')[0])
                 try:
