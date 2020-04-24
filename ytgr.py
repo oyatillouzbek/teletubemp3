@@ -1,5 +1,6 @@
 API_TOKEN='1145285593:AAGsLLjD3OI_UfXh-BUBSOz_RbgE2dVyQvo'
 import telebot
+from telebot import types
 
 bot1=telebot.TeleBot(API_TOKEN, threaded=False)
 try:
@@ -214,7 +215,7 @@ try:
             #bot1.send_message(chat_id, "Noto'g'ri buyruq berildi")
     bot1.polling()
 except:
-    bot.send_message(164135965, str(ex))
+    bot1.send_message(164135965, str(ex))
     bot1.polling()
 
 logger = telebot.logger
