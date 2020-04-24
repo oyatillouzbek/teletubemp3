@@ -217,6 +217,3 @@ try:
 except:
     bot1.send_message(164135965, str(ex))
     bot1.polling()
-
-logger = telebot.logger
-telebot.logger.setLevel(logging.INFO)
