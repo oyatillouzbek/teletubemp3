@@ -137,7 +137,7 @@ try:
         if str(message.text) == '/start':
             keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
             keyboard.add(types.KeyboardButton(text="🔎 Qo'shiq izlash"))
-            bot1.send_video(chat_id, 'BAADAgADZQUAAlU4wUjnmjAZJ1B02hYE', caption="Shazam dasturida qidirilgan musiqani yuklash uchun musiqa linkini @shazam_downloader guruhiga ulashing.Tushunmagan bo'lsangiz yuqoridagi videoni tomosha qiling.",reply_markup=keyboard)
+            bot1.send_video(chat_id, 'https://t.me/YTDownloaders/8425', caption="Shazam dasturida qidirilgan musiqani yuklash uchun musiqa linkini @shazam_downloader guruhiga ulashing.Tushunmagan bo'lsangiz yuqoridagi videoni tomosha qiling.",reply_markup=keyboard)
         if str(message.text) == "🔎 Qo'shiq izlash":
             keyboard = types.InlineKeyboardMarkup()
             keyboard.add(types.InlineKeyboardButton(text="🔎 Qo'shiq izlash", switch_inline_query_current_chat=""))
