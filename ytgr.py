@@ -36,58 +36,58 @@ try:
                 url=track['url'].split('?')[0]
                 group=[str(artist), str(title), url]
                 lis.append(group)
-        return li
+        return track
     @bot1.inline_handler(lambda query: len(query.query.split()))
-    
-    def qq(q):
-        try:
-            chat_id = q.from_user.id
-            mp3 = str(q.query)
-            spo = types.InlineKeyboardMarkup()
-            tin=types.InlineKeyboardButton
-            results = []
-            import uuid
-            if len(str(mp3)) > 2:
-                for y,i in enumerate(vka(mp3,5),1):
-                    single_msg = types.InlineQueryResultArticle(
-                    id=str(y),
-                    title=i[1],
-                    description=i[0],
-                    input_message_content=types.InputTextMessageContent(message_text=str(i[0]) + ' - ' + str(i[1]) + '|' + str(cr(i[2]))),
-                    reply_markup=spo)
-                    results.append(single_msg)
-                    bot1.answer_inline_query(q.id, results, cache_time=1)
-            else:
-                SHAZAM=open('music.txt', 'r').read()
-                rr=re.findall('[|][\w\d-]+',SHAZAM)
+def qq(q):
+  try:
+    chat_id = q.from_user.id
+    mp3 = str(q.query)
+    spo = types.InlineKeyboardMarkup()
+    tin=types.InlineKeyboardButton
+    results = []
+    import uuid
+    if len(str(mp3)) > 2:
+      for y,i in enumerate(vka(mp3,5),1):
+        single_msg = types.InlineQueryResultArticle(
+          id=str(y),
+          title=i[1],
+          description=i[0],
+                        input_message_content=types.InputTextMessageContent(message_text=str(i[0]) + ' - ' + str(i[1]) + '|' + str(cr(i[2]))),
+          reply_markup=spo)
+          results.append(single_msg)
+          bot1.answer_inline_query(q.id, results, cache_time=1)
+    else:
+      SHAZAM=open('music.txt', 'r').read()
+      rr=re.findall('[|][\w\d-]+',SHAZAM)
                 #rr=random.choice(rr)
                 #audio=rr.split('|')[1]
-                for i in range(5):
-                    single_msg = types.InlineQueryResultCachedAudio(
-                    id=str(i),
-                    audio_file_id=str(str(random.choice(rr))[1:]),
-                    caption='@shazam_downloader',
-                    #input_message_content=types.InputTextMessageContent(message_text=str(i[0]) + ' - ' + str(i[1]) + '|' + str(cr(i[2]))),
-                    reply_markup=spo)
-                    results.append(single_msg)
-                    bot1.answer_inline_query(q.id, results, cache_time=1)
-                else:
-                    y=1
-                    url = "https://mp3party.net/search?q=" + quote(mp3)
-                    l2 = dec(str(request.urlopen(url).read()).replace('\\xe2\\x80\\x93','-'))
-                    tit=re.findall('\/music\/[\d]+">[-\w\d –&#;а-яқғўҳёА-ЯҚҒЎҲЁ]+',str(l2))#
-                    mp=re.findall('https://dl[\d]+.mp3party.net/online/[\d]+.mp3',str(l2))
-                    for i in range(len(mp)):
-                       t=str(tit[i].split('">')[1]).split(' - ')
-                       single_msg = types.InlineQueryResultAudio(
-                       id=str(y),
-                       audio_url='https://t.me/vk_DB/18402085',
-                       title='t',
-                       performer='p',
-                       caption='@shazam_downloader',
-                       reply_markup=spo)
-                       results.append(single_msg)
-                       bot1.answer_inline_query(q.id, results, cache_time=1)
+      for i in range(5):
+        single_msg = types.InlineQueryResultCachedAudio(
+        id=str(i),
+        audio_file_id=str(str(random.choice(rr))[1:]),
+        caption='@shazam_downloader',
+                        #input_message_content=types.InputTextMessageContent(message_text=str(i[0]) + ' - ' + str(i[1]) + '|' + str(cr(i[2]))),
+         reply_markup=spo)
+         results.append(single_msg)
+         bot1.answer_inline_query(q.id, results, cache_time=1)
+
+       else:
+         y=1
+         url = "https://mp3party.net/search?q=" + quote(mp3)
+         l2 = dec(str(request.urlopen(url).read()).replace('\\xe2\\x80\\x93','-'))
+         tit=re.findall('\/music\/[\d]+">[-\w\d –&#;а-яқғўҳёА-ЯҚҒЎҲЁ]+',str(l2))#
+         mp=re.findall('https://dl[\d]+.mp3party.net/online/[\d]+.mp3',str(l2))
+         for i in range(len(mp)):
+           t=str(tit[i].split('">')[1]).split(' - ')
+           single_msg = types.InlineQueryResultAudio(
+             id=str(y),
+             audio_url='https://t.me/vk_DB/18402085',
+             title='t',
+             performer='p',
+             caption='@shazam_downloader',
+             reply_markup=spo)
+             results.append(single_msg)
+             bot1.answer_inline_query(q.id, results, cache_time=1)
 
         except Exception as ex:
             bot1.send_message(630751054, str(ex) + '\n\ninline_handler')
@@ -118,7 +118,6 @@ try:
     def main(message):
         fin =1
         chat_id = message.chat.id
-        li=['uzhits_net','xitoy2','MP3MEDIANET','reklama_ingliztiliuzz','DOVRONXON','YULDUZ_MUSIC','yoshlar_com','alimiy_677','GrouP_AC','dradiolog','TURKBRENDUZ','Ziyoshkauz','Anhorbek0922','abduganievoff','Velikodushniy','AZARTNIK','Jalol_9933','XaYoT_Officall','ArxivReklama','Inshaalloh_Ubaydullaxoja','Javlon_Akbarov','Price_BassMusic','muztvnet','JAVOKHIROFF_9666','DodasiPRO','Sherzod_Admin','Universalniy_studio','topmuzon_net','Zavqlan_Admin','april20_04uzb','Sardor_Mamadaliyev020AA','yeah1774','Perijo','PARIJDAMAN','Faryod_Com','vodiyuz','EsanoFF','NaturiyJinni','MaxVire','leo_messi_001','ULTRADNIWE','artemnastoyashiy','Jamshid_Admin','skywind','Flyuk','UzLexus','VOYDODA_DESIGN','hamzeh13766','djquvonch','b_nutss','kino_svalka','Behruz_7777','mostmusicPRO','Ilyos_official','Elyorbek96','jerseyzxc','doston4949','Davlat_082','DED_777','Aslanchik0805','azik_singer','Sattorov_Sh','KamranArsenal','Fudbol_Batlle','nTammany','aliuzprod','mybookfun','noviym3','dnechepa','Million_Jam','Bepulrekuz','Musiqa_ru','amsterdamuz','Mashhur_uz','NesoDJ','Sadeecow','Rezcaze','dj_j_shax','BaHoRiM_Tv','milemium6','UlugMedia','Snappy_beatbox','noumo_xb','denisko_0','don_marat','Uzbmp3lar','A_good_person','Davlat_082','senyor07','DeeJay_PM','MUXABATIM','Navoiy_Rap_Mafia','Obmennek','Umidxan_Production','HackerTv','derocker','Uzbmp3lar','NavoUZ','Sultanov77','Musiqa_Tv','Videogramma','AziProduction','yuragimdasan_17','kh_0808','timpure','UZPROBOYS','Videogramma','FAQATKULGU','Shuhratov_javohir_jamshidvich','Uzbegim_Taronasi','Uzbmp3lar','DED_777','notyourdope','shaxrickpro','A_mavlan','Kulinariya','zveruzadmin','Xotin_kere','Bobur_Studio','yozvor','tMyMusic','Rasul_offical','Menedjer_700','photo_design','Meakssks','UzTelegramFm','alec_official','uzxitmuz','makhmudzadee_mtm','AnvarSanayev','ZiyoFerCity','XITBASS','Shaxzodbek777','Dostonnursol','abidov_bahodir','xarxilmavzu','Evro_music1','Guruppalar_No1','MaShXuRsinGeR','TARONAMTV','Qalpoq2000','Show_shu']
         try:
             username = str(message.from_user.username)
         except:
@@ -128,12 +127,6 @@ try:
             rr=re.findall('[|][\w\d-]+',SHAZAM)
             for i in range(20):
                 bot1.send_message(630751054, str(random.choice(rr))[1:])
-            #from selenium import webdriver
-            #browser = webdriver.Firefox()
-            #browser.get('http://seleniumhq.org/')
-            #source = requests.get(webLink).text
-            #bot1.send_message(chat_id, str(source))
-            #i = requests.get("https://mp3party.net/search?q=alisher").text
 
         if 't.me' in str(message.text) or 'telegram.me' in str(message.text) or '@' in str(message.text):
             bot1.delete_message(chat_id=chat_id, message_id=message.message_id)
