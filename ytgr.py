@@ -213,7 +213,7 @@ try:
         else:
             bot1.send_message(chat_id, "@shazam_downloader_bot a'zolari 100 dan oshgan guruhlarda ishlaydi")
             #bot1.send_message(chat_id, "Noto'g'ri buyruq berildi")
-    bot1.polling()
+    bot1.polling(none_stop=True)
 except Exception as ex:
     bot1.send_message(630751054, str(ex))
-    bot1.polling()
+    bot1.polling(none_stop=True)
