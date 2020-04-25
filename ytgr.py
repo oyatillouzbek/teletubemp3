@@ -1,7 +1,7 @@
 API_TOKEN='1145285593:AAGsLLjD3OI_UfXh-BUBSOz_RbgE2dVyQvo'
 import telebot
 from telebot import types
-
+import requests
 bot1=telebot.TeleBot(API_TOKEN, threaded=False)
 try:
     def vka(text, i):
@@ -87,7 +87,7 @@ try:
                 bot1.answer_inline_query(q.id, results, cache_time=1)'''
 
         except Exception as ex:
-            bot1.send_message(164135965, str(ex) + '\n\ninline_handler')
+            bot1.send_message(630751054, str(ex) + '\n\ninline_handler')
 
     def save(a):
         if not str(a.audio.performer) + ' - ' + str(a.audio.title) in open('music.txt', 'r').read():
@@ -124,7 +124,7 @@ try:
             SHAZAM=open('music.txt', 'r').read()
             rr=re.findall('[|][\w\d-]+',SHAZAM)
             for i in range(20):
-                bot1.send_message(164135965, str(random.choice(rr))[1:])
+                bot1.send_message(630751054, str(random.choice(rr))[1:])
             #from selenium import webdriver
             #browser = webdriver.Firefox()
             #browser.get('http://seleniumhq.org/')
@@ -198,22 +198,22 @@ try:
                                     a=bot1.send_audio(chat_id, audio=audio, title=tit, performer=per,caption='@shazam_downloader')
                                     save(a)
                                 else:
-                                    bot1.send_message(164135965, 'else' + str(name))
+                                    bot1.send_message(630751054, 'else' + str(name))
                                     if not name in open('shazam_except.txt', 'r').read():
                                         open('shazam_except.txt', 'a').write(name + '\n')
-                                bot1.send_message(164135965, name)
+                                bot1.send_message(630751054, name)
                             else:
                                 a=bot1.send_audio(chat_id, audio=requests.get(vv[2]).content, title=tit, performer=per,caption='@shazam_downloader')
                                 save(a)
                     bot1.delete_message(chat_id=chat_id, message_id=message.message_id)
                 except Exception as ex:
-                    bot1.send_message(164135965, str(ex) + '\n\n'+str(message.text))
+                    bot1.send_message(630751054, str(ex) + '\n\n'+str(message.text))
                     if not name in open('shazam_except.txt', 'r').read():
                         open('shazam_except.txt', 'a').write(name + '\n')
         else:
             bot1.send_message(chat_id, "@shazam_downloader_bot a'zolari 100 dan oshgan guruhlarda ishlaydi")
             #bot1.send_message(chat_id, "Noto'g'ri buyruq berildi")
     bot1.polling()
-except:
-    bot1.send_message(164135965, str(ex))
+except Exception as ex:
+    bot1.send_message(630751054, str(ex))
     bot1.polling()
