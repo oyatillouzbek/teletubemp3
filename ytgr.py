@@ -2,6 +2,7 @@ API_TOKEN='1145285593:AAGsLLjD3OI_UfXh-BUBSOz_RbgE2dVyQvo'
 import telebot
 from telebot import types
 import requests
+import re
 bot1=telebot.TeleBot(API_TOKEN, threaded=False)
 try:
     def vka(text, i):
