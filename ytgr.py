@@ -36,7 +36,7 @@ try:
                 url=track['url'].split('?')[0]
                 group=[str(artist), str(title), url]
                 lis.append(group)
-        return track
+        return tracks
     @bot1.inline_handler(lambda query: len(query.query.split()))
     def qq(q):
         try:
