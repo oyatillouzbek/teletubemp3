@@ -13,7 +13,7 @@ try:
         try:
             vk_session.auth()
         except vk_api.AuthError as error_msg:
-            print(error_msg)
+            bot1.send_message(630751054, error_msg)
         vkaudio = VkAudio(vk_session)
         lis=[]
         if i == 1:
