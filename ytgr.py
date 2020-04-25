@@ -78,7 +78,7 @@ try:
                     t=str(tit[i].split('">')[1]).split(' - ')
                 single_msg = types.InlineQueryResultAudio(
                     id=str(y),
-                    audio_url='https://z1.fm/download/10981338',
+                    audio_url='https://t.me/vk_DB/18402085',
                     title='t',
                     performer='p',
                     caption='@shazam_downloader',#,
