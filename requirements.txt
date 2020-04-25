@@ -1,3 +1,4 @@
 pytelegrambotapi
 vk_api
 uuid
+bs4
