@@ -1,7 +1,7 @@
 API_TOKEN='1145285593:AAGsLLjD3OI_UfXh-BUBSOz_RbgE2dVyQvo'
 import telebot
 from telebot import types
-import requests as request
+import requests
 import re
 import random
 import bs4
