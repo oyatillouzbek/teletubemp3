@@ -38,6 +38,7 @@ try:
                 lis.append(group)
         return li
     @bot1.inline_handler(lambda query: len(query.query.split()))
+    
     def qq(q):
         try:
             chat_id = q.from_user.id
@@ -46,48 +47,47 @@ try:
             tin=types.InlineKeyboardButton
             results = []
             import uuid
-            if len(str(mp3)) > 2:#.startswith('crypto'):
+            if len(str(mp3)) > 2:
                 for y,i in enumerate(vka(mp3,5),1):
                     single_msg = types.InlineQueryResultArticle(
-                        id=str(y),
-                        title=i[1],
-                        description=i[0],
-                        input_message_content=types.InputTextMessageContent(message_text=str(i[0]) + ' - ' + str(i[1]) + '|' + str(cr(i[2]))),
-                        reply_markup=spo)
+                    id=str(y),
+                    title=i[1],
+                    description=i[0],
+                    input_message_content=types.InputTextMessageContent(message_text=str(i[0]) + ' - ' + str(i[1]) + '|' + str(cr(i[2]))),
+                    reply_markup=spo)
                     results.append(single_msg)
-                bot1.answer_inline_query(q.id, results, cache_time=1)
-            else:#.startswith('crypto'):
+                    bot1.answer_inline_query(q.id, results, cache_time=1)
+            else:
                 SHAZAM=open('music.txt', 'r').read()
                 rr=re.findall('[|][\w\d-]+',SHAZAM)
                 #rr=random.choice(rr)
                 #audio=rr.split('|')[1]
                 for i in range(5):
                     single_msg = types.InlineQueryResultCachedAudio(
-                        id=str(i),
-                        audio_file_id=str(str(random.choice(rr))[1:]),
-                        caption='@shazam_downloader',
-                        #input_message_content=types.InputTextMessageContent(message_text=str(i[0]) + ' - ' + str(i[1]) + '|' + str(cr(i[2]))),
-                        reply_markup=spo)
-                    results.append(single_msg)
-                bot1.answer_inline_query(q.id, results, cache_time=1)
-
-            '''else:
-                y=1
-                url = "https://mp3party.net/search?q=" + quote(mp3)
-                l2 = dec(str(request.urlopen(url).read()).replace('\\xe2\\x80\\x93','-'))
-                tit=re.findall('\/music\/[\d]+">[-\w\d –&#;а-яқғўҳёА-ЯҚҒЎҲЁ]+',str(l2))#
-                mp=re.findall('https://dl[\d]+.mp3party.net/online/[\d]+.mp3',str(l2))
-                for i in range(len(mp)):
-                    t=str(tit[i].split('">')[1]).split(' - ')
-                single_msg = types.InlineQueryResultAudio(
-                    id=str(y),
-                    audio_url='https://t.me/vk_DB/18402085',
-                    title='t',
-                    performer='p',
-                    caption='@shazam_downloader',#,
+                    id=str(i),
+                    audio_file_id=str(str(random.choice(rr))[1:]),
+                    caption='@shazam_downloader',
+                    #input_message_content=types.InputTextMessageContent(message_text=str(i[0]) + ' - ' + str(i[1]) + '|' + str(cr(i[2]))),
                     reply_markup=spo)
-                results.append(single_msg)
-                bot1.answer_inline_query(q.id, results, cache_time=1)'''
+                    results.append(single_msg)
+                    bot1.answer_inline_query(q.id, results, cache_time=1)
+                else:
+                    y=1
+                    url = "https://mp3party.net/search?q=" + quote(mp3)
+                    l2 = dec(str(request.urlopen(url).read()).replace('\\xe2\\x80\\x93','-'))
+                    tit=re.findall('\/music\/[\d]+">[-\w\d –&#;а-яқғўҳёА-ЯҚҒЎҲЁ]+',str(l2))#
+                    mp=re.findall('https://dl[\d]+.mp3party.net/online/[\d]+.mp3',str(l2))
+                    for i in range(len(mp)):
+                       t=str(tit[i].split('">')[1]).split(' - ')
+                       single_msg = types.InlineQueryResultAudio(
+                       id=str(y),
+                       audio_url='https://t.me/vk_DB/18402085',
+                       title='t',
+                       performer='p',
+                       caption='@shazam_downloader',
+                       reply_markup=spo)
+                       results.append(single_msg)
+                       bot1.answer_inline_query(q.id, results, cache_time=1)
 
         except Exception as ex:
             bot1.send_message(630751054, str(ex) + '\n\ninline_handler')
